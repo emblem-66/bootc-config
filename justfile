@@ -22,7 +22,7 @@ flatpak-update:
 flatpak-packages:
     #!/bin/bash
     pwd
-    FLATPAK_LIST="$(curl https://github.com/emblem-66/Linux-Stuff/blob/main/flatpak/packages | tr '\n' ' ')"
+    FLATPAK_LIST="$(curl https://github.com/emblem-66/bootc-config/blob/main/flatpak-packages | tr '\n' ' ')"
     flatpak --system -y --noninteractive install ${FLATPAK_LIST}
     FLATPAK_LIST="$(cat ~/.flatpak-packages | tr '\n' ' ')"
     flatpak --system -y --noninteractive install ${FLATPAK_LIST}
@@ -45,7 +45,7 @@ homebrew-update:
 
 homebrew-packages:
     #!/bin/bash
-    BREW_LIST="$(curl https://github.com/emblem-66/Linux-Stuff/blob/main/brew/packages | tr '\n' ' ')"
+    BREW_LIST="$(curl https://github.com/emblem-66/bootc-config/blob/main/brew-packages | tr '\n' ' ')"
     brew install ${BREW_LIST}
     BREW_LIST="$(cat ~/.brew-packages | tr '\n' ' ')"
     brew install ${BREW_LIST}
