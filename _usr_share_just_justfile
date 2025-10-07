@@ -13,6 +13,7 @@ flatpak-setup:
     flatpak remote-delete --force fedora
     flatpak remote-delete --force fedora-testing
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak override --filesystem=/var/mnt
 
 flatpak-update:
     #!/bin/bash
