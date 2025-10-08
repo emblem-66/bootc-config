@@ -30,7 +30,7 @@ flatpak-packages:
 ### HOMEBREW
 homebrew-setup:
     #!/bin/bash
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     #curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
     [[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     # Universal Blue workaround
