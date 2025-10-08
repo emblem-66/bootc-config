@@ -22,21 +22,19 @@ flatpak-update:
 
 flatpak-packages:
     #!/bin/bash
-    FLATPAK_LIST="$(curl https://github.com/emblem-66/bootc-config/blob/main/flatpak-packages | tr '\n' ' ')"
+    FLATPAK_LIST="$(curl https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/flatpak-packages | tr '\n' ' ')"
     flatpak --system -y --noninteractive install ${FLATPAK_LIST}
-    #FLATPAK_LIST="$(cat ~/.flatpak-packages | tr '\n' ' ')"
-    #flatpak --system -y --noninteractive install ${FLATPAK_LIST}
 
 ### HOMEBREW
 homebrew-setup:
     #!/bin/bash
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    #curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
     [[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    # Universal Blue workaround
-    # https://www.ypsidanger.com/homebrew-is-great-on-linux/
-    # https://github.com/ublue-os/config/blob/main/build/ublue-os-just/etc-profile.d/brew.sh?ref=ypsidanger.com
-    #[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+ 
+# Universal Blue workaround
+ # https://www.ypsidanger.com/homebrew-is-great-on-linux/
+ # https://github.com/ublue-os/config/blob/main/build/ublue-os-just/etc-profile.d/brew.sh?ref=ypsidanger.com
+ #[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 homebrew-update:
     #!/bin/bash
@@ -45,7 +43,5 @@ homebrew-update:
 
 homebrew-packages:
     #!/bin/bash
-    BREW_LIST="$(curl https://github.com/emblem-66/bootc-config/blob/main/brew-packages | tr '\n' ' ')"
+    BREW_LIST="$(curl https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/brew-packages | tr '\n' ' ')"
     brew install ${BREW_LIST}
-    #BREW_LIST="$(cat ~/.brew-packages | tr '\n' ' ')"
-    #brew install ${BREW_LIST}
