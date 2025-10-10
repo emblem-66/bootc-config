@@ -30,7 +30,8 @@ homebrew-setup:
     #!/bin/bash
     curl -o /var/brew.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
     #NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    NONINTERACTIVE=1 /bin/bash -c /var/brew.sh
+    #NONINTERACTIVE=1 /bin/bash -c /var/brew.sh
+    /bin/bash -c /var/brew.sh
     [[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     rm -rf /var/brew.sh
  
