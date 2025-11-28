@@ -43,6 +43,7 @@ homebrew-update:
     #!/bin/bash
     brew update
     brew upgrade
+    brew cleanup
 
 homebrew-packages:
     #!/bin/bash
