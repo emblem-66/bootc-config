@@ -1,3 +1,4 @@
+gcc
 mc
 micro
 bat
@@ -5,3 +6,16 @@ htop
 btop
 fastfetch
 podlet
+typst
+font-3270
+font-arial
+font-ibm-plex-sans
+font-iosevka
+font-3270-nerd-font
+font-ibm-plex-math
+font-ibm-plex-sans-condensed
+font-adwaita-mono-nerd-font
+font-ibm-plex-mono
+font-ibm-plex-serif
+ffmpeg
+ffmpegthumbnailer
