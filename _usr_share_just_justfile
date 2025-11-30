@@ -43,7 +43,7 @@ homebrew-setup:
     #curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /home/
     mkdir -p /home/linuxbrew
     curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /var/home/
-    echo "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /var/home/pc/.bashrc
+    echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /var/home/pc/.bashrc
 
 homebrew-update:
     #!/bin/bash
