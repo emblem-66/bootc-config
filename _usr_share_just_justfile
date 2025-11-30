@@ -52,6 +52,7 @@ homebrew-setup:
     #curl -L https://github.com/Homebrew/brew/tarball/main | tar xz --strip-components 1 -C /var/home/linuxbrew/.linuxbrew
     # git clone https://github.com/Homebrew/brew homebrew
     NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # chown -R pc:pc /home/linuxbrew/.linuxbrew/
     echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /var/home/pc/.bashrc
 
 homebrew-update:
