@@ -1,5 +1,7 @@
 [Unit]
 Description=Install Homebrew
+After=network-online.target
+Wants=network-online.target
 ConditionPathExists=!/var/home/linuxbrew/.linuxbrew/bin/brew
 
 [Service]
