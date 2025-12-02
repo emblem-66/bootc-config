@@ -28,40 +28,44 @@ flatpak-packages:
 ### HOMEBREW
 homebrew-setup:
     #!/bin/bash
-    #curl -o /var/brew.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
-    #NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    #NONINTERACTIVE=1 /bin/bash -c /var/brew.sh
-    #/bin/bash -c /var/brew.sh
-    #[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    #rm -rf /var/brew.sh
+    # curl -o /var/brew.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+    # NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # NONINTERACTIVE=1 /bin/bash -c /var/brew.sh
+    # /bin/bash -c /var/brew.sh
+    # [[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    # rm -rf /var/brew.sh
     # Universal Blue workaround
     # https://www.ypsidanger.com/homebrew-is-great-on-linux/
     # https://github.com/ublue-os/config/blob/main/build/ublue-os-just/etc-profile.d/brew.sh?ref=ypsidanger.com
-    #[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-    #cp -r /usr/share/homebrew/ /var/
-    #echo "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" > /var/home/pc/.bashrc
-    #curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /home/
-    #mkdir -p /home/linuxbrew
-    #curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /var/home/
-    #echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /var/home/pc/.bashrc
-    #mkdir -p /var/home/linuxbrew/
-    #curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /var/
-    #echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /var/home/pc/.bashrc
+    # [[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    # cp -r /usr/share/homebrew/ /var/
+    # echo "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" > /var/home/pc/.bashrc
+    # curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /home/
+    # mkdir -p /home/linuxbrew
+    # curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /var/home/
+    # echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /var/home/pc/.bashrc
+    # mkdir -p /var/home/linuxbrew/
+    # curl -L https://github.com/ublue-os/packages/releases/latest/download/homebrew-x86_64.tar.zst | unzstd -c | tar -xvf - -C /var/
+    # echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"" >> /var/home/pc/.bashrc
     # /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    #mkdir -p /var/home/linuxbrew/.linuxbrew
-    #curl -L https://github.com/Homebrew/brew/tarball/main | tar xz --strip-components 1 -C /var/home/linuxbrew/.linuxbrew
+    # mkdir -p /var/home/linuxbrew/.linuxbrew
+    # curl -L https://github.com/Homebrew/brew/tarball/main | tar xz --strip-components 1 -C /var/home/linuxbrew/.linuxbrew
     # git clone https://github.com/Homebrew/brew homebrew
-    #NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    #mkdir -p /var/home/linuxbrew/.linuxbrew/
-    #NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    #chown -R pc:pc /var/home/linuxbrew/.linuxbrew/
-    #ptyxis -e bash -c "NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)""
-    #echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)""
-    BREW='NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
-    ptyxis -e bash -c "$BREW"
-    LINE='\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
-    echo -e "$LINE" >> ~/.bashrc
-    #echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)""
+    # NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # mkdir -p /var/home/linuxbrew/.linuxbrew/
+    # NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # chown -R pc:pc /var/home/linuxbrew/.linuxbrew/
+    # ptyxis -e bash -c "NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)""
+    # echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)""
+    # BREW='NONINTERACTIVE=1 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"'
+    # ptyxis -e bash -c "$BREW"
+    # BREW="NONINTERACTIVE=1 /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+    # ptyxis -e bash -c "$BREW"
+    ptyxis -e bash -c "NONINTERACTIVE=1 /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+    # LINE='\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"'
+    # echo -e "$LINE" >> ~/.bashrc
+    # echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)""
+    printf '\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"\n' >> ~/.bashrc
 
 homebrew-update:
     #!/bin/bash
