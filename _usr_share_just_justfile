@@ -66,6 +66,19 @@ homebrew-setup:
     # echo -e "$LINE" >> ~/.bashrc
     # echo -e "\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)""
     printf '\n[[ -d /home/linuxbrew/.linuxbrew && $- == *i* ]] && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"\n' >> ~/.bashrc
+    printf '\nif type brew &>/dev/null
+    printf '\nthen\n' >> ~/.bashrc
+    printf '\n  HOMEBREW_PREFIX="$(brew --prefix)"\n' >> ~/.bashrc
+    printf '\n  if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]\n' >> ~/.bashrc
+    printf '\n  then\n' >> ~/.bashrc
+    printf '\n    source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"\n' >> ~/.bashrc
+    printf '\n  else
+    printf '\n    for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*\n' >> ~/.bashrc
+    printf '\n    do\n' >> ~/.bashrc
+    printf '\n      [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"\n' >> ~/.bashrc
+    printf '\n    done\n' >> ~/.bashrc
+    printf '\n  fi\n' >> ~/.bashrc
+    printf '\nfi\n' >> ~/.bashrc
 
 homebrew-update:
     #!/bin/bash
