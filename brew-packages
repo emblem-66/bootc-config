@@ -1,4 +1,3 @@
-gcc
 mc
 micro
 bat
@@ -12,9 +11,9 @@ font-iosevka
 font-3270
 font-3270-nerd-font
 font-ibm-plex-sans
-font-ibm-plex-math
 font-ibm-plex-sans-condensed
-font-ibm-plex-mono
 font-ibm-plex-serif
+font-ibm-plex-math
+font-ibm-plex-mono
 ffmpeg
 ffmpegthumbnailer
