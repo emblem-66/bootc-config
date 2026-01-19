@@ -1,3 +1,7 @@
 enable bootc-update.timer
 enable flatpak-setup.service
 enable flatpak-update.timer
+enable tailscaled.service
+enable sshd.service
+enable btrfs-scrub.timer
+
