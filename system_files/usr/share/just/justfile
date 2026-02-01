@@ -2,22 +2,22 @@
 bootc-upgrade:
     #!/bin/bash
     bootc upgrade --quiet
-    notify-send "System upgraded"
+    #notify-send "System upgraded"
 
 bootc-upgrade-reboot:
     #!/bin/bash
-    notify-send "System upgrade starting. Will perform reboot upon completion"
+    #notify-send "System upgrade starting. Will perform reboot upon completion"
     bootc upgrade --apply --quiet
 
 ### FLATPAK
 flatpak-setup:
     #!/bin/bash
-    notify-send "Flatpak setup starting"
-    flatpak remote-delete --force fedora
-    flatpak remote-delete --force fedora-testing
+    #notify-send "Flatpak setup starting"
+    flatpak remote-delete --force fedora || true
+    flatpak remote-delete --force fedora-testing || true
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak override --filesystem=/var/mnt
-    notify-send "Flatpak setup finished"
+    #notify-send "Flatpak setup finished"
 
 flatpak-update:
     #!/bin/bash
@@ -29,7 +29,7 @@ flatpak-packages:
     #!/bin/bash
     FLATPAK_LIST="$(curl https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/flatpak-packages | tr '\n' ' ')"
     flatpak --system -y --noninteractive install ${FLATPAK_LIST}
-    notify-send "Flatpak packages installed"
+    #notify-send "Flatpak packages installed"
 
 ### HOMEBREW
 homebrew-setup:
