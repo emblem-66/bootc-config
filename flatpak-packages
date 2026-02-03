@@ -10,6 +10,8 @@ com.bitwarden.desktop
 com.spotify.Client
 io.github.celluloid_player.Celluloid
 page.tesk.Refine
+io.github.getnf.embellish
+io.github.sitraorg.sitra
 com.github.tchx84.Flatseal
 it.mijorus.gearlever
 io.github.cboxdoerfer.FSearch
@@ -21,6 +23,3 @@ org.gnome.SimpleScan
 org.gnome.Papers
 org.gnome.TextEditor
 org.onlyoffice.desktopeditors
-io.github.getnf.embellish
-io.github.sitraorg.sitra
-io.github.diegopvlk.cine
