@@ -1,2 +1,4 @@
+# Enable
 enable podman.socket
 enable flatpak-update.timer
+# Disable
