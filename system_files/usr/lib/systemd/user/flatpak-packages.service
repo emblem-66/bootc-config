@@ -1,0 +1,13 @@
+[Unit]
+Description=Update Flatpak
+After=network-online.target
+Wants=network-online.target
+After=flatpak-setup.service
+
+[Service]
+Type=oneshot
+#ExecStart=/usr/bin/just --justfile /usr/share/just/justfile flatpak-packages
+ExecStart=/bin/sh -c 'flatpak --user -y --noninteractive install $(curl -s https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/flatpak-packages | tr "\n" " ")'
+
+[Install]
+WantedBy=multi-user.target
