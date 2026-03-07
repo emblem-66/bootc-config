@@ -14,7 +14,7 @@ Wants=network-online.target
 
 [Service]
 Type=oneshot
-ExecStart=/usr/libexec/flatpak.sh
+ExecStart=/usr/libexec/flatpak-aio.sh
 
 [Install]
 WantedBy=default.target
