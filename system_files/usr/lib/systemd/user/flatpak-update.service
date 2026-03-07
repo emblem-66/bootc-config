@@ -1,16 +1,21 @@
 [Unit]
-Description=Update Flatpak
+Description=Flatpak
 After=network-online.target
 Wants=network-online.target
 
+#[Service]
+#Type=oneshot
+#ExecStart=/usr/bin/flatpak remote-add --if-not-exists --system flathub /etc/flatpak/remotes.d/flathub.flatpakrepo
+#ExecStart=/usr/bin/flatpak remote-modify --system --enable flathub || true
+#ExecStart=/usr/bin/flatpak remote-modify --system --disable fedora || true
+#ExecStart=/usr/bin/bash -c 'flatpak --user -y --noninteractive install $(curl -s https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/flatpak-packages | tr "\n" " ")'
+#ExecStart=/usr/bin/flatpak update --noninteractive --assumeyes
+#ExecStart=/usr/bin/flatpak uninstall --unused --noninteractive --assumeyes
+
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/flatpak remote-add --if-not-exists --system flathub /etc/flatpak/remotes.d/flathub.flatpakrepo
-ExecStart=/usr/bin/flatpak remote-modify --system --enable flathub || true
-ExecStart=/usr/bin/flatpak remote-modify --system --disable fedora || true
-ExecStart=/usr/bin/bash -c 'flatpak --user -y --noninteractive install $(curl -s https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/flatpak-packages | tr "\n" " ")'
-ExecStart=/usr/bin/flatpak update --noninteractive --assumeyes
-ExecStart=/usr/bin/flatpak uninstall --unused --noninteractive --assumeyes
+ExecStart=/usr/libexec/flatpak.sh
 
 [Install]
-WantedBy=multi-user.target
+WantedBy=default.target
+#WantedBy=multi-user.target
