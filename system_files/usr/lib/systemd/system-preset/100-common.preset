@@ -6,6 +6,7 @@ enable btrfs-scrub.timer
 enable podman-auto-update.timer
 enable smartd.service
 enable firewalld.service
+enable podman.socket
 # Disable
 disable systemd-remount-fs.service
 disable flatpak-add-fedora-repos.service
