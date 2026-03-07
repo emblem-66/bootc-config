@@ -1,2 +1,2 @@
 enable podman.socket
-enable flathub-update.timer
+enable flatpak.timer
