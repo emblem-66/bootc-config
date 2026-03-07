@@ -4,7 +4,8 @@ Description=File Receiver Service for Taildrop
 [Service]
 #UMask=0077
 #User=pc
-ExecStart=tailscale file get --verbose --loop --conflict rename "${HOME}/Downloads/Taildrop"
+#ExecStart=tailscale file get --verbose --loop --conflict rename "${HOME}/Downloads/Taildrop"
+ExecStart=tailscale file get --verbose --loop --conflict rename "%h/Downloads/Taildrop"
 
 [Install]
 WantedBy=default.target
