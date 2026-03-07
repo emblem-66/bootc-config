@@ -17,5 +17,5 @@ Type=oneshot
 ExecStart=/usr/libexec/flatpak-aio.sh
 
 [Install]
-WantedBy=default.target
-#WantedBy=multi-user.target
+#WantedBy=default.target
+WantedBy=multi-user.target
