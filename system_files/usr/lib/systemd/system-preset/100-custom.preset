@@ -1,1 +1,11 @@
+# mask
+mask systemd-remount-fs.service
+mask flatpak-add-fedora-repos.service
 
+# enable
+enable bootc-fetch-apply-updates.service
+enable tailscaled.service
+enable cockpit.socket
+enable btrfs-scrub.timer
+enable podman-auto-update.timer
+enable smartd.service
