@@ -2,7 +2,7 @@
 Description=File Receiver Service for Taildrop
 
 [Service]
-UMask=0077
+#UMask=0077
 #User=pc
 ExecStart=tailscale file get --verbose --loop --conflict rename "${HOME}/Downloads/Taildrop"
 
