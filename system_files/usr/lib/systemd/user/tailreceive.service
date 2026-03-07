@@ -8,4 +8,5 @@ Description=File Receiver Service for Taildrop
 ExecStart=tailscale file get --verbose --loop --conflict rename "%h/Downloads/Taildrop"
 
 [Install]
-WantedBy=default.target
+#WantedBy=default.target
+WantedBy=multi-user.target
