@@ -1,4 +1,4 @@
 # Enable
-enable flatpak-aio.timer
+enable flatpak-update.timer
 enable tailreceive.service
 # Disable
