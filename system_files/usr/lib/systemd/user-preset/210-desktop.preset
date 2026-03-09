@@ -1,4 +1,0 @@
-# Enable
-enable flatpak-update.timer
-enable tailreceive.service
-# Disable
