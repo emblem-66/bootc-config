@@ -1,4 +1,4 @@
 # Enable
-x-flatpak-update.timer
+enable x-flatpak-update.timer
 
 # Disable
