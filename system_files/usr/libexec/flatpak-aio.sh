@@ -2,7 +2,7 @@
 set -xeuo pipefail
 
 # FLATHUB SETUP
-flatpak remote-add --if-not-exists --system flathub /etc/flatpak/remotes.d/flathub.flatpakrepo
+flatpak remote-add --if-not-exists --system flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak remote-modify --system --enable flathub || true
 flatpak remote-modify --system --disable fedora || true
 
