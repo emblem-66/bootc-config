@@ -1,0 +1,11 @@
+[Unit]
+Description=Extract Tailscale IPv4 address for container bindings
+After=network-online.target tailscaled.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'echo TS_IP=$(tailscale ip -4 | head -n1) > /run/tailscale-ip.env'
+
+[Install]
+WantedBy=multi-user.target
