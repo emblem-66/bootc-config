@@ -1,6 +1,7 @@
 # Enable
 enable bootc-fetch-apply-updates.service
 enable tailscaled.service
+enable tailscale-ip.service
 enable cockpit.socket
 enable btrfs-scrub.timer
 enable podman-auto-update.timer
