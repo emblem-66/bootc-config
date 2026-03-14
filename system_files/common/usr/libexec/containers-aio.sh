@@ -36,3 +36,6 @@ https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_fi
 curl -fsSL --create-dirs -o \
 /etc/containers/systemd/stirlingpdf.container \
 https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/stirlingpdf.container
+
+systemctl stop {}.service
+systemctl daemon-reload
