@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-BASE_URL="https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/"
-DIR="/etc/containers/systemd/"
+BASE_URL="https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files"
+DIR="/etc/containers/systemd"
+services=""
 
 for file in "$DIR"/*.container; do
     name=$(basename "$file")
@@ -13,5 +14,5 @@ for file in "$DIR"/*.container; do
     services="$services $service"
 done
 
-sudo systemctl daemon-reload
-sudo systemctl restart $services
+systemctl daemon-reload
+systemctl restart $services
