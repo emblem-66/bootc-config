@@ -1,41 +1,17 @@
 #!/usr/bin/env bash
 set -xeuo pipefail
 
-curl -fsSL --create-dirs -o \
-/etc/containers/systemd/audiobookshelf.container \
-https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/audiobookshelf.container
+BASE_URL="https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/"
+DIR="/etc/containers/systemd/"
 
-curl -fsSL --create-dirs -o \
-/etc/containers/systemd/caddy.container \
-https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/caddy.container
+for file in "$DIR"/*.container; do
+    name=$(basename "$file")
 
-curl -fsSL --create-dirs -o \
-/etc/containers/systemd/homer.container \
-https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/homer.container
+    curl -fsSL "$BASE_URL/$name" -o "$DIR/$name"
 
-curl -fsSL --create-dirs -o \
-/etc/containers/systemd/jellyfin.container \
-https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/jellyfin.container
+    service="${name%.container}.service"
+    services="$services $service"
+done
 
-curl -fsSL --create-dirs -o \
-/etc/containers/systemd/linkding.container \
-https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/linkding.container
-
-curl -fsSL --create-dirs -o \
-/etc/containers/systemd/navidrome.container \
-https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/navidrome.container
-
-curl -fsSL --create-dirs -o \
-/etc/containers/systemd/qbittorent.container \
-https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/qbittorrent.container
-
-curl -fsSL --create-dirs -o \
-/etc/containers/systemd/stash.container \
-https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/stash.container
-
-curl -fsSL --create-dirs -o \
-/etc/containers/systemd/stirlingpdf.container \
-https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files/stirlingpdf.container
-
-systemctl daemon-reload
-systemctl restart {}.service
+sudo systemctl daemon-reload
+sudo systemctl restart $services
