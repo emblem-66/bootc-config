@@ -3,12 +3,11 @@ set -xeuo pipefail
 
 BASE_URL="https://raw.githubusercontent.com/emblem-66/containers/refs/heads/main/system_files"
 DIR="/etc/containers/systemd"
-
 services=""
-
 #tailscale_ip=""
 
 TS_IP=$(tailscale ip -4 | head -n1)
+echo $TS_IP
 
 if [[ -z "$TS_IP" ]]; then
     echo "Error: could not get Tailscale IP"
