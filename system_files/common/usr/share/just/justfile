@@ -1,33 +1,56 @@
 ### BOOTC
+bootc-check:
+    #!/usr/bin/env bash
+    set -xeuo pipefail
+    bootc upgrade --check
+
 bootc-upgrade:
-    #!/bin/bash
+    #!/usr/bin/env bash
+    set -xeuo pipefail
     bootc upgrade --quiet
 
 bootc-upgrade-reboot:
-    #!/bin/bash
+    #!/usr/bin/env bash
+    set -xeuo pipefail
     bootc upgrade --apply --quiet
 
 ### FLATPAK
+flatpak-aio:
+    #!/usr/bin/env bash
+    set -xeuo pipefail
+    flatpak remote-delete --force fedora || true
+    flatpak remote-delete --force fedora-testing || true
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak override --filesystem=/var/mnt
+    flatpak update -y --noninteractive
+    flatpak remove -y --noninteractive --unused
+    FLATPAK_LIST="$(curl https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/flatpak-packages | tr '\n' ' ')"
+    flatpak --system -y --noninteractive install ${FLATPAK_LIST}
+
 flatpak-setup:
-    #!/bin/bash
+    #!/usr/bin/env bash
+    set -xeuo pipefail
     flatpak remote-delete --force fedora || true
     flatpak remote-delete --force fedora-testing || true
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     flatpak override --filesystem=/var/mnt
 
 flatpak-update:
-    #!/bin/bash
+    #!/usr/bin/env bash
+    set -xeuo pipefail
     flatpak update -y --noninteractive
     flatpak remove -y --noninteractive --unused
 
 flatpak-packages:
-    #!/bin/bash
+    #!/usr/bin/env bash
+    set -xeuo pipefail
     FLATPAK_LIST="$(curl https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/flatpak-packages | tr '\n' ' ')"
     flatpak --system -y --noninteractive install ${FLATPAK_LIST}
 
 ### HOMEBREW
 homebrew-setup:
-    #!/bin/bash
+    #!/usr/bin/env bash
+    set -xeuo pipefail
     # curl -o /var/brew.sh https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
     # NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     # NONINTERACTIVE=1 /bin/bash -c /var/brew.sh
@@ -81,12 +104,14 @@ homebrew-setup:
     printf '\nfi\n' >> ~/.bashrc
 
 homebrew-update:
-    #!/bin/bash
+    #!/usr/bin/env bash
+    set -xeuo pipefail
     brew update
     brew upgrade
     brew cleanup
 
 homebrew-packages:
-    #!/bin/bash
+    #!/usr/bin/env bash
+    set -xeuo pipefail
     BREW_LIST="$(curl https://raw.githubusercontent.com/emblem-66/bootc-config/refs/heads/main/brew-packages | tr '\n' ' ')"
     brew install ${BREW_LIST}
