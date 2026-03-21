@@ -1,0 +1,10 @@
+[Unit]
+Description=Fetch bootc image
+After=network-online.target
+Wants=network-online.target
+ConditionPathExists=/run/ostree-booted
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/bootc-aio.sh
+[Install]
+WantedBy=multi-user.target
