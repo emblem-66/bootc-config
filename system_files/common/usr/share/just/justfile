@@ -21,6 +21,7 @@ flatpak-aio:
     flatpak remote-delete --force fedora || true
     flatpak remote-delete --force fedora-testing || true
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    flatpak override --filesystem=/mnt
     flatpak override --filesystem=/var/mnt
     flatpak update -y --noninteractive
     flatpak remove -y --noninteractive --unused
