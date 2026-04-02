@@ -15,6 +15,7 @@ flatpak update --noninteractive --assumeyes
 flatpak uninstall --unused --noninteractive --assumeyes
 
 # OVERRIDES
+flatpak override --filesystem=/mnt
 flatpak override --filesystem=/var/mnt
 flatpak override --filesystem=xdg-config/gtk-3.0:ro
 flatpak override --filesystem=xdg-config/gtk-4.0:ro
